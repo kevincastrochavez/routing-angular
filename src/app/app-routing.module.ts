@@ -7,6 +7,7 @@ import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { CanDeactivateGuard } from "./servers/edit-server/can-deactivate-guard.service";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
+import { ServerResolver } from "./servers/server-resolver.service";
 import { ServerComponent } from "./servers/server/server.component";
 import { ServersComponent } from "./servers/servers.component";
 import { UserComponent } from "./users/user/user.component";
@@ -37,6 +38,9 @@ const appRoutes: Routes = [
       {
         path: ":id",
         component: ServerComponent,
+        resolve: {
+          server: ServerResolver,
+        },
       },
       {
         path: ":id/edit",
